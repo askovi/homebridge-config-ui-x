@@ -12,6 +12,25 @@
   z-index: 2000;
 }
 
+.loginLogo-container {
+  position: absolute;
+  top: -35%;
+  z-index: 2000;
+  max-width: 450px;
+
+  @media screen and (max-width: 450px){
+    max-width: 320px;
+    top: -25%;
+  }
+
+  @media screen and (max-width: 320px){
+    max-width: 280px;
+  }
+
+  
+  
+}
+
 .login-card {
   max-width: 500px;
   background-color: rgba(255, 255, 255, 0.90);
