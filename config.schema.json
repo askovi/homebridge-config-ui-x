@@ -32,7 +32,7 @@
       "theme": {
         "title": "UI Theme",
         "type":  "string",
-        "default": "red",
+        "default": "blue-grey",
         "oneOf": [
           { "title": "Red", "enum": ["red"] },
           { "title": "Pink", "enum": ["pink"] },

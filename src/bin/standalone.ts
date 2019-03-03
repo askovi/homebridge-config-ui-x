@@ -96,7 +96,7 @@ class StandaloneUI {
     // these can be overridden using the config.json file
     this.setup.config = {
       port: process.env.HOMEBRIDGE_CONFIG_UI_PORT || 8080,
-      theme: process.env.HOMEBRIDGE_CONFIG_UI_THEME || 'red',
+      theme: process.env.HOMEBRIDGE_CONFIG_UI_THEME || 'blue-grey',
       auth: process.env.HOMEBRIDGE_CONFIG_UI_AUTH || 'form',
       temp: process.env.HOMEBRIDGE_CONFIG_UI_TEMP || undefined,
       loginWallpaper: process.env.HOMEBRIDGE_CONFIG_UI_LOGIN_WALLPAPER || undefined,
