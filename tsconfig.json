@@ -4,11 +4,10 @@
     "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "types": ["node"]
   },
-  "files": [
-    "./node_modules/@types/node/index.d.ts"
-  ],
+  
   "include": [
     "src/**/*.ts"
   ],

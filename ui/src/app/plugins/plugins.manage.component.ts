@@ -121,7 +121,7 @@ export class PluginsManageComponent implements OnInit {
     this.$api.updatePlugin(this.pluginName).subscribe(
       (data) => {
         this.onComplete = () => {
-          if (this.pluginName === 'homebridge-config-ui-x') {
+          if (this.pluginName === 'homebridge-config-ui-x-hoobs') {
             this.updateSelf = true;
           } else {
             this.$state.reload();

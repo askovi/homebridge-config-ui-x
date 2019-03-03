@@ -1,4 +1,4 @@
-process.title = 'homebridge-config-ui-x';
+process.title = 'homebridge-config-ui-x-hoobs';
 
 import 'source-map-support/register';
 

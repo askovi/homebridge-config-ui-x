@@ -82,7 +82,7 @@ export class AuthService {
       .then((data: any) => {
         this.formAuth = data.formAuth;
         this.env = data.env;
-        this.setTheme(data.theme || 'red');
+        this.setTheme(data.theme || 'blue-grey');
         this.setTitle(data.env.homebridgeInstanceName);
       });
   }
