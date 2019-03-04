@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-config-ui-x",
-  "version": "3.9.6",
-  "description": "Configuration UI plugin for Homebridge",
+  "name": "homebridge-config-ui-hoobs",
+  "version": "1.0.0",
+  "description": "Configuration UI plugin for Hoobs",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin"

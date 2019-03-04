@@ -108,9 +108,9 @@ class HomebridgeUI {
       setTimeout(() => {
         this.warn(`Invalid theme in config.json. Possible options are: ${this.availableThemes.join(', ')}`);
       }, 2000);
-      this.theme = 'red';
+      this.theme = 'blue-grey';
     } else {
-      this.theme = 'red';
+      this.theme = 'blue-grey';
     }
 
     // check the path to the temp file actually exists
