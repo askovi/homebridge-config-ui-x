@@ -109,6 +109,7 @@
     "plugins.status_not_installed": "Not Installed",
     "plugins.status_update_available": "Update Available",
     "plugins.toast_failed_to_load_plugins": "Failed to load plugins",
+    "plugins.toast_failed_to_load_networks": "Failed to load networks.",
     "plugins.tooltip_update_plugin_to": "Update plugin to v{{version}}",
     "reset.button_reset_homebridge_now": "Reset Homebridge Now",
     "reset.label_reset_homebridge": "reset homebridge",

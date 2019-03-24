@@ -6,9 +6,18 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ApiService {
   private base = environment.apiBaseUrl;
+  private wifiBase = environment.wifiUrl;
   private httpOptions = environment.apiHttpOptions;
 
   constructor(private $http: HttpClient) {}
+
+  getWifiNetworks() {
+    return this.$http.get(`${this.wifiBase}/networks`);
+  }
+
+  connectNetwork(ssid, username, password) {
+    return this.$http.post(`${this.wifiBase}/connect`, {ssid: ssid, identity: username, passphrase: password});
+  }
 
   getAppSettings() {
     return this.$http.get(`${this.base}/api/settings`, this.httpOptions);

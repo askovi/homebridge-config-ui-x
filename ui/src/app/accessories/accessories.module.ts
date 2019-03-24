@@ -29,6 +29,8 @@ import { LightbulbManageComponent } from './types/lightbulb/lightbulb.manage.com
 import { LockmechanismComponent } from './types/lockmechanism/lockmechanism.component';
 import { TemperaturesensorComponent } from './types/temperaturesensor/temperaturesensor.component';
 import { GaragedooropenerComponent } from './types/garagedooropener/garagedooropener.component';
+import { WindowblindsComponent } from './types/windowblinds/windowblinds.component';
+import { WindowblindsManageComponent } from './types/windowblinds/windowblinds.manage.component';
 import { MotionsensorComponent } from './types/motionsensor/motionsensor.component';
 import { OccupancysensorComponent } from './types/occupancysensor/occupancysensor.component';
 import { HumiditysensorComponent } from './types/humiditysensor/humiditysensor.component';
@@ -50,6 +52,8 @@ import { AirqualitysensorComponent } from './types/airqualitysensor/airqualityse
     LockmechanismComponent,
     TemperaturesensorComponent,
     GaragedooropenerComponent,
+    WindowblindsComponent,
+    WindowblindsManageComponent,
     MotionsensorComponent,
     OccupancysensorComponent,
     LongClickDirective,
@@ -63,6 +67,7 @@ import { AirqualitysensorComponent } from './types/airqualitysensor/airqualityse
     AddRoomModalComponent,
     InfoModalComponent,
     ThermostatManageComponent,
+    WindowblindsManageComponent,
     LightbulbManageComponent,
     FanManageComponent,
   ],

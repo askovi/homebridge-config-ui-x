@@ -40,7 +40,11 @@ class LoginComponent implements OnInit {
 
     this.$auth.login(value.username, value.password)
       .then((user) => {
-        this.$state.go(this.returnTo.name(), this.returnTo.params());
+        if (document.referrer === "http://192.168.42.1/"){
+          window.location.replace("/docker/settings");
+        } else {
+          this.$state.go(this.returnTo.name(), this.returnTo.params());
+        }
       })
       .catch((err) => {
         this.invalidCredentials = true;

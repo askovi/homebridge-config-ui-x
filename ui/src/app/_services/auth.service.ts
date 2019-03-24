@@ -96,6 +96,6 @@ export class AuthService {
   }
 
   setTitle(title: string) {
-    this.titleService.setTitle(title || 'Homebridge');
+    this.titleService.setTitle(title || 'Hoobs');
   }
 }

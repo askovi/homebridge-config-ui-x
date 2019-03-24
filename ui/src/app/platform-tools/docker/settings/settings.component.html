@@ -6,35 +6,83 @@
 </div>
 
 <div class="row mt-3">
-  <div class="col-md-12">
-    <div class="alert alert-danger" role="alert" *ngIf="!$auth.env.ableToConfigureSelf">
-       {{'platform.docker.settings.message_image_upgrade_required' | translate}} <a target="_blank" rel="noopener noreferrer" href="https://github.com/oznu/docker-homebridge">https://github.com/oznu/docker-homebridge</a>
+    <div class="col-md-6">
+        <h5 class="primary-text">Wired Network</h5>
+        <img class="wired" src="/assets/ethernet.png" />
+        <form novalidate [formGroup]="wiredForm"> 
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Wired Connection (Recommended)
+                <div class="material-switch pull-right">
+                  <input id="wiredMode" formControlName="WIRED_MODE" type="checkbox" />
+                  <label for="wiredMode" class="badge-primary"></label>
+                </div>
+              </li>
+            </ul>
+          </form>
     </div>
-    <div class="alert alert-warning" role="alert" [translate]="'platform.docker.settings.message_env_warning'">
-      Changing these values will override the corresponding environment variables you may have set with the docker run command.
+    <div class="col-md-6">
+      <h5 class="primary-text">WiFi Network</h5>
+      <img class="wifi" src="/assets/wifi.png" />
+      <form novalidate [formGroup]="wirelessForm"> 
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Wireless Connection
+              <div class="material-switch pull-right">
+                <input id="wirelessMode" formControlName="WIRELESS_MODE" type="checkbox" />
+                <label for="wirelessMode" class="badge-primary"></label>
+              </div>
+            </li>
+          </ul>
+        </form>
+        <p class="note"><i>Note: This feature is only available while connected to the HOOBS wifi network.</i></p>
+        <div *ngIf="wifienabled">
+          <form (ngSubmit)="onSubmit()" novalidate [formGroup]="networkForm">
+              <div class="form-group">
+                <label for="ssid">SSID</label>
+                <select formControlName="ssid" (change)="onChange($event.target.value)" class="form-control">
+                    <option [ngValue]="null">--Select your WiFi Network--</option>
+                    <option *ngFor="let network of networks" value={{network.ssid}}>
+                        {{network.ssid}}
+                    </option>
+                </select>
+              </div>
+              <div *ngIf="enterprise" class="form-group">
+                <label for="username">Username</label>
+                <input type='text' class="form-control" formControlName="username" />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type='password' class="form-control" formControlName="password" />
+              </div>
+              <div class="form-group">
+                <button type='submit' class="btn btn-primary btn-lg" name="connect">Connect</button>
+              </div>
+          </form>
+        </div>
     </div>
-  </div>
 </div>
 
-<form novalidate [formGroup]="form">
-
-  <h5 class="primary-text">Homebridge</h5>
-
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Homebridge Debug Mode
-      <div class="material-switch pull-right">
-        <input id="homebridgeDebugMode" formControlName="HOMEBRIDGE_DEBUG" type="checkbox" />
-        <label for="homebridgeDebugMode" class="badge-primary"></label>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Homebridge Insecure Mode
-      <div class="material-switch pull-right">
-        <input id="homebridgeInsecureMode" formControlName="HOMEBRIDGE_INSECURE" type="checkbox" />
-        <label for="homebridgeInsecureMode" class="badge-primary"></label>
-      </div>
-    </li>
-  </ul>
-
-</form>
+<div class="row mt-3">
+    <div class="col-md-6">
+      <form novalidate [formGroup]="form">
+        <h5 class="primary-text">Advanced</h5>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Debug Mode
+            <div class="material-switch pull-right">
+              <input id="homebridgeDebugMode" formControlName="HOMEBRIDGE_DEBUG" type="checkbox" />
+              <label for="homebridgeDebugMode" class="badge-primary"></label>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Web Control Mode
+            <div class="material-switch pull-right">
+              <input id="homebridgeInsecureMode" formControlName="HOMEBRIDGE_INSECURE" type="checkbox" />
+              <label for="homebridgeInsecureMode" class="badge-primary"></label>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+</div>

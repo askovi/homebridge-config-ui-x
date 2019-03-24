@@ -4962,6 +4962,13 @@
                             </translation>
                         </translations>
                     </concept_node>
+                    <concept_node>
+                        <name>toast_failed_to_load_networks</name>
+                        <definition_loaded>false</definition_loaded>
+                        <description></description>
+                        <comment></comment>
+                        <default_text></default_text>
+                    </concept_node>
                 </children>
             </folder_node>
         </children>
