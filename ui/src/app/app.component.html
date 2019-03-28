@@ -11,24 +11,51 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item waves-effect waves-light" uiSrefActive="active">
-          <a class="nav-link" uiSref="status" [translate]="'menu.label_status'">Status</a>
-        </li>
-        <li class="nav-item waves-effect waves-light" uiSrefActive="active" *ngIf="$auth.user.admin">
-          <a class="nav-link" uiSref="plugins" [translate]="'menu.label_plugins'">Plugins</a>
-        </li>
-        <li class="nav-item waves-effect waves-light" uiSrefActive="active" *ngIf="$auth.user.admin">
-          <a class="nav-link" uiSref="config" [translate]="'menu.label_config'">Config</a>
-        </li>
-        <li class="nav-item waves-effect waves-light" uiSrefActive="active" *ngIf="$auth.env.enableAccessories">
-          <a class="nav-link" uiSref="accessories" [translate]="'menu.label_accessories'">Accessories</a>
-        </li>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" ngbTooltip="{{'menu.tooltip_view_dashboard' | translate}}">
+              <a class="nav-link" uiSref="dashboard">
+                <i class="material-icons">dashboard</i>
+              </a>
+          </li>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" *ngIf="$auth.env.enableAccessories" ngbTooltip="{{'menu.tooltip_view_acessories' | translate}}">
+              <a class="nav-link" uiSref="accessories">
+                <i class="material-icons">home</i>
+              </a>
+          </li>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" ngbTooltip="{{'menu.tooltip_view_status' | translate}}">
+                <a class="nav-link" uiSref="status">
+                  <i class="material-icons">info</i>
+                </a>
+              </li>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" ngbTooltip="{{'menu.tooltip_view_approvedplugins' | translate}}">
+                  <a class="nav-link" uiSref="plugins_approved">
+                    <i class="material-icons">assignment_turned_in</i>
+                  </a>
+          </li>
+
+          <!--Show only in Advanced Mode-->
+          <h2 style="color:ghostwhite">|</h2>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" ngbTooltip="{{'menu.tooltip_view_plugins' | translate}}">
+              <a class="nav-link" uiSref="plugins">
+                <i class="material-icons" style="color:#f9bd2b">assignment_late</i>
+              </a>
+          </li>
+          <li class="nav-item waves-effect waves-light" uiSrefActive="active" placement="bottom" ngbTooltip="{{'menu.tooltip_view_config' | translate}}" container="body" *ngIf="$auth.formAuth">
+              <a class="nav-link" uiSref="config">
+                <i class="material-icons" style="color:#f9bd2b">subject</i>
+              </a>
+                </li>
+            <li class="nav-item waves-effect waves-light" uiSrefActive="active" placement="bottom" ngbTooltip="{{'menu.tooltip_view_logs' | translate}}" container="body" *ngIf="$auth.formAuth">
+              <a class="nav-link" uiSref="logs">
+                <i class="material-icons" style="color:#f9bd2b">chrome_reader_mode</i>
+              </a>
+            </li>
+            <!--End-Show only in Advanced Mode-->
       </ul>
 
       <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item waves-effect waves-light" uiSrefActive="active" placement="bottom" ngbTooltip="{{'menu.tooltip_view_logs' | translate}}" container="body">
-          <a class="nav-link" uiSref="logs">
-            <i class="material-icons">chrome_reader_mode</i>
+        <li class="nav-item waves-effect waves-light" uiSrefActive="active" placement="bottom" ngbTooltip="{{'menu.tooltip_view_settings' | translate}}" container="body" *ngIf="$auth.formAuth">
+          <a class="nav-link" uiSref="docker.settings">
+            <i class="material-icons">settings</i>
           </a>
         </li>
         <li class="nav-item waves-effect waves-light" uiSrefActive="active" placement="bottom" ngbTooltip="{{'menu.tooltip_user_accounts' | translate}}" container="body" *ngIf="$auth.user.admin">
@@ -47,17 +74,6 @@
           </a>
         </li>
 
-        <li class="nav-item dropdown" *ngIf="$auth.env.runningInDocker && $auth.user.admin">
-          <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fab fa-docker"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-info">
-            <a class="dropdown-item waves-effect waves-light" uiSref="docker.terminal" [translate]="'menu.docker.label_terminal'">Terminal</a>
-            <a class="dropdown-item waves-effect waves-light" uiSref="docker.startup-script" [translate]="'menu.docker.label_startup_script'">Startup Script</a>
-            <a class="dropdown-item waves-effect waves-light" uiSref="docker.restart-container" [translate]="'menu.docker.label_restart_container'">Restart Container</a>
-            <a class="dropdown-item waves-effect waves-light" uiSref="docker.settings" [translate]="'menu.docker.label_settings'">Settings</a>
-          </div>
-        </li>
 
         <li class="nav-item dropdown" *ngIf="$auth.env.runningInLinux && $auth.user.admin">
           <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

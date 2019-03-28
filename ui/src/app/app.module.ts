@@ -52,6 +52,8 @@ import { UsersEditComponent } from './users/users.edit.component';
 import { RestartComponent, RestartState } from './restart/restart.component';
 import { LoginComponent, LoginStates } from './login/login.component';
 import { ResetComponent, ResetModalComponent } from './reset/reset.component';
+import { DashboardComponent, DashboardStates } from "./dashboard/dashboard.component";
+import { Plugins_approvedComponent, Plugin_approvedStates } from './plugins_approved/plugins_approved.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,11 @@ import { ResetComponent, ResetModalComponent } from './reset/reset.component';
     LoginComponent,
     ResetComponent,
     ResetModalComponent,
+
+    DashboardComponent,
+
+    Plugins_approvedComponent,
+    
   ],
   entryComponents: [
     PluginsManageComponent,
@@ -124,7 +131,9 @@ import { ResetComponent, ResetModalComponent } from './reset/reset.component';
         PluginStates,
         PluginSearchStates,
         RestartState,
-        LoginStates
+        LoginStates,
+        DashboardStates,
+        Plugin_approvedStates,
       ],
       useHash: false,
       config: routerConfigFn,

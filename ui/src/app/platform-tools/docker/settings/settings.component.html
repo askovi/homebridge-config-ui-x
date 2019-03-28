@@ -6,13 +6,14 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <h5 class="primary-text">Wired Network</h5>
-        <img class="wired" src="/assets/ethernet.png" />
+        <img class="wired" style="width: 50%" src="/assets/ethernet.png" />
+        <br>
         <form novalidate [formGroup]="wiredForm"> 
             <ul class="list-group">
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                Wired Connection (Recommended)
+                Wired Connection
                 <div class="material-switch pull-right">
                   <input id="wiredMode" formControlName="WIRED_MODE" type="checkbox" />
                   <label for="wiredMode" class="badge-primary"></label>
@@ -20,10 +21,12 @@
               </li>
             </ul>
           </form>
+          <p class="note"><i>Note: We recommend to connect via Ethernet</i></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
       <h5 class="primary-text">WiFi Network</h5>
-      <img class="wifi" src="/assets/wifi.png" />
+      <img class="wifi" style="width: 50%" src="/assets/wifi.png" />
+      <br>
       <form novalidate [formGroup]="wirelessForm"> 
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -61,28 +64,42 @@
           </form>
         </div>
     </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-md-6">
-      <form novalidate [formGroup]="form">
-        <h5 class="primary-text">Advanced</h5>
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Debug Mode
-            <div class="material-switch pull-right">
-              <input id="homebridgeDebugMode" formControlName="HOMEBRIDGE_DEBUG" type="checkbox" />
-              <label for="homebridgeDebugMode" class="badge-primary"></label>
-            </div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Web Control Mode
-            <div class="material-switch pull-right">
-              <input id="homebridgeInsecureMode" formControlName="HOMEBRIDGE_INSECURE" type="checkbox" />
-              <label for="homebridgeInsecureMode" class="badge-primary"></label>
-            </div>
-          </li>
-        </ul>
-      </form>
-    </div>
+    <div class="col-md-3">
+        <form novalidate [formGroup]="form">
+          <h5 class="primary-text">Support & Power Users</h5>
+          <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Show Acessories Tab
+                  <div class="material-switch pull-right">
+                    <input id="homebridgeInsecureMode" formControlName="HOMEBRIDGE_INSECURE" type="checkbox" />
+                    <label for="homebridgeInsecureMode" class="badge-primary"></label>
+                  </div>
+                </li>            
+          </ul>
+        </form>
+      </div>
+      <div class="col-md-3">
+          <form novalidate [formGroup]="form">
+            <h5 class="primary-text"><br></h5>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Advanced Mode <br>(Install unapproved Plugins, Config.json edit, Protocol)
+                      <div class="material-switch pull-right">
+                        <input id="homebridgeInsecureMode" formControlName="?????" type="checkbox" />
+                        <label for="homebridgeInsecureMode" class="badge-primary"></label>
+                      </div>
+                    </li>
+                    <p class="note"><i>Note: Only recommended for Powerusers, Warranty gets lost when enabled.</i></p>
+                  <br>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Debug Mode (Support only)
+                <div class="material-switch pull-right">
+                  <input id="homebridgeDebugMode" formControlName="HOMEBRIDGE_DEBUG" type="checkbox" />
+                  <label for="homebridgeDebugMode" class="badge-primary"></label>
+                </div>
+              </li>
+              
+            </ul>
+          </form>
+        </div>
 </div>

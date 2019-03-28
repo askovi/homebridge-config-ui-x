@@ -16,10 +16,10 @@ interface HomebridgeStatus {
 }
 
 @Component({
-  selector: 'app-status',
-  templateUrl: './status.component.html'
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html'
 })
-export class StatusComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   @ViewChild('qrcode') qrcode: ElementRef;
 
   private onOpen;
@@ -44,13 +44,13 @@ export class StatusComponent implements OnInit {
   ngOnInit() {
     // subscribe to status events
     if (this.ws.socket.readyState) {
-      this.ws.subscribe('status');
+      this.ws.subscribe('dashboard');
       this.consoleStatus = 'up';
       this.checkHomebridgeVersion();
     }
 
     this.onOpen = this.ws.open.subscribe(() => {
-      this.ws.subscribe('status');
+      this.ws.subscribe('dashboard');
       this.consoleStatus = 'up';
       this.checkHomebridgeVersion();
     });
@@ -114,12 +114,12 @@ export class StatusComponent implements OnInit {
 
 }
 
-export const StatusStates = {
-  name: 'status',
-  url: '/status',
-  component: StatusComponent,
+
+export const DashboardStates = {
+  name: 'dashboard',
+  url: '/',
+  component: DashboardComponent,
   data: {
     requiresAuth: true
   }
 };
-
